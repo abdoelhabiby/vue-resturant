@@ -1,10 +1,24 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <Navbar></Navbar>
+
   <router-view />
 </template>
+
+
+<script>
+import Navbar from "@/views/Navbar";
+export default {
+  methods: {},
+  computed: {},
+
+  watch: {},
+  mounted() {},
+  components: {
+    Navbar,
+  },
+};
+</script>
+
 
 <style lang="scss">
 #app {
