@@ -16,20 +16,20 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link to="/" class="nav-link">Home</router-link>
+            <router-link :to="{name:'home'}" class="nav-link">Home</router-link>
           </li>
 
           <li class="nav-item">
-            <router-link to="/about" class="nav-link">About</router-link>
+            <router-link :to="{name:'about'}" class="nav-link">About</router-link>
           </li>
         </ul>
 
         <ul class="navbar-nav" v-if="checkGuest">
           <li class="nav-item">
-            <router-link to="/login" class="nav-link">Login</router-link>
+            <router-link :to="{name:'login'}" class="nav-link">Login</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/sign-up" class="nav-link">sign up</router-link>
+            <router-link :to="{name:'signup'}" class="nav-link">sign up</router-link>
           </li>
         </ul>
         <ul class="navbar-nav" v-if="checkAuth">
@@ -44,12 +44,14 @@
               {{ getUserData?.name }}
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li>
+               <router-link :to="{name:'profile'}" class="dropdown-item">Profile</router-link>
+
+              </li>
               <li><a class="dropdown-item" href="#">Another action</a></li>
             </ul>
           </li>
           <li class="nav-item">
-            <!-- <a class="nav-link" @click.prevent="handelLogout()">logout</a> -->
             <Logout class="nav-link"></Logout>
           </li>
         </ul>
@@ -62,8 +64,7 @@
 import { mapGetters } from "vuex";
 import Logout from "@/components/auth/Logout";
 export default {
-  methods: {
-  },
+  methods: {  },
   computed: {
     ...mapGetters(["getUserData", "checkAuth", "checkGuest"]),
   },

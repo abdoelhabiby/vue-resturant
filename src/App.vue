@@ -10,7 +10,6 @@ import Navbar from "@/views/Navbar";
 export default {
   methods: {},
   computed: {},
-
   watch: {},
   mounted() {},
   components: {

@@ -30,7 +30,7 @@ export const auth = {
 
         checkAuth(state, getters) {
 
-            if (state.auth_token == null || state.auth_token == 'null') {
+            if (state.auth_token == null || state.auth_token == 'null' || getters.getUserData == null || getters.getUserData == 'null') {
                 return false;
             }
             return true;

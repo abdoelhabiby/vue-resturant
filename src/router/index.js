@@ -29,6 +29,14 @@ const routes = [{
 
     },
     {
+        path: "/profile",
+        name: "profile",
+        component: () =>
+            import ("../views/auth/Profile.vue"),
+        beforeEnter: [auth]
+
+    },
+    {
         path: "/sign-up",
         name: "signup",
         component: () =>

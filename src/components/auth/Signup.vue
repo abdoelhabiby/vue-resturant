@@ -28,7 +28,7 @@
                       <div class="form-outline flex-fill mb-0">
                         <input
                           type="text"
-                          v-model="name"
+                          v-model.trim="name"
                           :class="[
                             'form-control',
                             v$.name.$error ? 'is-invalid' : '',
@@ -59,7 +59,7 @@
                             'form-control',
                             v$.email.$error ? 'is-invalid' : '',
                           ]"
-                          v-model="email"
+                          v-model.trim="email"
                         />
                         <label class="form-label" for="form3Example3c"
                           >Your Email</label
@@ -152,12 +152,11 @@
       </div>
     </div>
   </section>
-  {{ errors }}
 </template>
 
 <script>
 import useVuelidate from "@vuelidate/core";
-import { required, email, sameAs } from "@vuelidate/validators";
+import { required, email, sameAs ,minLength} from "@vuelidate/validators";
 import axios from "axios";
 
 export default {
@@ -175,7 +174,7 @@ export default {
   },
   validations() {
     return {
-      name: { required },
+      name: { required , minLength: minLength(4)},
       email: { required, email },
       confirmPassword: {
         required,

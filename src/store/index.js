@@ -1,7 +1,6 @@
 import { createStore } from "vuex";
 
 import router from "@/router/index.js";
-import useVuelidate from "@vuelidate/core";
 import { auth } from "@/store/modules/auth.js"
 export default createStore({
     state: {
